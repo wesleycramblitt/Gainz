@@ -1,0 +1,162 @@
+Biceps_Seated Biceps Curl, Dumbell
+Biceps_Standing Biceps Curl, Dumbell
+Biceps_Standing Medium-Grip Barbell Curl
+Biceps_Standing One-Arm Dumbbell Curl
+Biceps_Biceps Curl, Iso-Bar
+Biceps_Biceps Curl, Roto-Bar
+Biceps_Preacher Bench Medium-Grip Barbell Curl
+Biceps_Dumbbell Curl
+Biceps_Incline Dumbbell Curl
+Biceps_Bicep Machine, Seated
+Biceps_Standing Bar Curl, Machine
+Biceps_Standing One-Arm Curl,Low Pulley
+Triceps_Triceps Push Down
+Triceps_Triceps Rope Pull-down
+Triceps_Triceps Reverse Grip Push Down
+Triceps_Triceps Extension,Standing,Rope
+Triceps_Triceps Extension,Machine,Seated
+Triceps_Triceps Extension,Machine,Standing,Bar
+Triceps_Triceps Extension,Lying Down
+Triceps_Triceps Extension,Overhead,Barbell
+Triceps_Triceps Extension,Overhead,Dumbbell
+Triceps_Kickbacks,Bent,1-Arm,Dumbbell
+Triceps_Kickbacks,Bent,2-Arm,Dumbbell
+Triceps_Dips,Bench or Chair
+Forearms(inner)_Wrist Curl,Barbell,Palms Up
+Forearms(outer)_Wrist Curl,Barbell,Palms Down
+Forearms(inner)_Wrist Curl (Wrist Flexion),Neutral Grip
+Forearms(outer)_Wrist Curl,Dumbbells,Palm Down
+Forearms(inner,outer)_Wrist Roller
+Chest_Bench Press,Barbell
+Chest_Flat Bench Press
+Chest_Flat Bench Press,Machine
+Chest_Flat Dumbbell Press
+Chest(outer)_Bench Press,Medium Grip,Barbell
+Chest(outer)_Bench Press,Wide-Grip,Barbell
+Chest(outer,upper)_Incline Bench Press,Wide-Grip,Barbell
+Chest(upper)_Incline Bench Press,Medium-Grip,Barbell
+Chest(upper)_Incline Press,Dumbbell
+Chest(upper)_Incline Press,Barbell
+Chest(lower)_Decline Press,Dumbbells
+Chest(lower)_Decline Bench Press,Medium-Grip,Barbell
+Chest(outer,lower)_Decline Bench Press,Wide-Grip,Barbell
+Chest(outer)_Bent-Arm Lateral,Dumbbells
+Chest(upper)_Incline Dumbbell Fly
+Chest(lower)_Decline Dumbbell Fly
+Chest(upper)_Incline Lateral,Dumbbells
+Chest_Flat Dumbbell Fly
+Chest_Chest Press Machine
+Chest(upper,inner)_Cable Crossover,High Pulley
+Chest_Machine Fly
+Chest(inner,upper)_Pec Dec Butterfly (Pectoral Fly)
+Chest_Straight-Arm Barbell Pullover,Medium-Grip
+Chest_Straight Arm Dumbbell Pullover
+Chest_Bent-Arm Dumbbell Pullover
+Chest(upper),Triceps_Bent Arm Barbell Pullover
+Chest(upper),Triceps_Bent Arm Barbell Pullover and Press
+Chest(lower),Triceps_Dips
+Chest(upper),Shoulders(front),Triceps_Bar Dip,Palms In,Neutral Grip
+Chest_Push Ups,Feet on Bench
+Chest,Triceps_Push Ups,Floor
+Chest(upper),Triceps_Push-Up,Elbows Close to Sides
+Chest(upper,lower)_Push-Up,Elbows Out
+Trapezius_Shoulders Shrug,Barbell
+Trapezius_Shoulders Shrug,Dumbbells
+Trapezius_Shoulders Shrug,Machine
+Back(middle)_Dumbbell Row,One-Arm, Bent-Over
+Back(upper)_Dumbbell Row,Two-Arm,Bent-Over
+Back(middle)_Barbell Row,Bent-over
+Back(middle)_Mid Row,Chest Supported,Machine
+Back_Seated Row,Floor,Machine
+Back(upper,lower)_Seated,Low Lat Pull-In,Two-Arm
+Back(upper)_Chin-Up,Neutral Grip,Palms Inward
+LowerBck_Front Chin Up,Close-Grip,Palms Back
+LowerBck_Front Chin Up,Reverse Close-Grip
+LowerBck_V-Bar Chin Up,Neutral Grip,Palms In
+Back_Pull-ups,Palms Front
+Back(upper)_Pull-Up,Pronated Grip(palms back)
+Back(upper)_Lat Pulldown,Wide Grip
+LowerBck_Lat Pulldown,Narrow-Grip
+Back_Lat Pulldown,Straight-Arm,Close-Grip
+LowerBck_Hyperextensions,Floor
+LowerBck_Hyperextension,Bench
+Back,Glutes,Hamstrings_Back Extension,"Roman Chair"
+Back,Glutes,Hamstrings_Back Extension,"Roman Chair",Twisting
+Back_Back Extension Machine
+LowerBck,Chest(lower)_Pullover
+Back_Pullover,Machine
+Shoulders(front)_Lateral Raise,Dumbbell,Side
+Shoulders(front)_Lateral Arm Raise,Machine
+Shoulders(front)_Front Raises, Straight Arm
+Shoulders(front)_Front Barbell Raise,Standing,Medium-Grip
+Shoulders(rear)_Rear Deltoid Raise,Dumbbell,Bent-Over
+Shoulders(rear)_Rear Deltoid Raise,Lying
+Shoulderss_Overhead Press,Machine,Seated
+Shoulderss_Overhead Press,Barbell
+Shoulderss_Overhead Press,Dumbbell
+Shoulders(front,outer)_Barbell Military Press
+Shoulders(front)_Shoulders Press,Dumbbell,Seated
+Shoulders(front,rear)_Shoulders Press,Seated
+Shoulders(front,outer)_Barbell Press,Behind Neck,Standing
+Shoulders(front,outer)_Dumbell Press,One-Arm,Palm-In
+Shoulders(front,outer)_Dumbbell Press,Seated,Palms-In
+Shoulders(front),Trapezius_Upright Row
+Shoulders(front),Trapezius_Upright Row,Barbell
+Shoulders(front),Trapezius_Upright Row,Dumbells
+Shoulders(front),Chest(upper),Triceps_Push-Up,Elbows Close to Sides
+Shoulders(front),Chest,Triceps_Push-Up,Elbows Out
+Shoulders(rear)_Back Butterfly
+Shoulders(rear)_Bent-Over Low-Pulley Side Lateral
+Abs_Abdominal Crunch,Floor
+Abs_Abdominal Crunch,Machine
+Abs(upper,obliques)_Sit-Up
+Abs(upper)_Bent-Knee Sit-Up
+Abs(upper)_Sit-Up,Heel-High
+Abs_Leg Raises,Hanging
+Abs(lower)_Vertical Leg Lift,Knees Straight (Dip Bars)
+Abs(lower)_Vertical Leg Lift,Knees Bent (Dip Bars)
+Abs(lower)_Leg Pull-In,Seated Flat Bench
+Abs(lower)_Reverse Sit-Up
+Abs_Abdominal Leg Raise
+Abs(obliques)_Abdominal Twist,Seated,Machine
+Abs(obliques)_Reverse Trunk Twist
+Abs(obliques)_Side Bends,Barbell
+Abs(obliques)_Side Bends,Dumbell
+Quadraceps,Glutes,Hamstrings_Front Squats,Barbell,Arms Crossed
+Quadraceps,Glutes,Hamstrings_Hack Squat
+Quadraceps,Glutes,Hamstrings_Machine Squat
+Quadraceps,Glutes,Hamstrings_Squat
+Glutes,Hamstrings,Hips_Lunge
+Quadraceps,Knee Extensors_Leg Extension
+Quadraceps,Glutes,Hamstrings_Leg Press
+Glutes,Hamstrings_Back Extension "Roman Chair"
+Glutes,Hamstrings_Back Extension "Roman Chair",Twisting
+Hamstrings_Hyperextensions
+Glutes,Hamstrings_Bent-Leg Kickbacks Machine
+Glutes,Hamstrings_Bent-Leg Kickbacks Floor
+Glutes,Hamstrings_Pelvic Lifts
+Glutes,Hamstrings_Deadlift Straight Leg
+Glutes_Pelvic Lifts Single Leg
+Hamstrings_Leg Curls Lying Down,Machine
+Hamstrings_Leg Curls Standing,Machine
+Thighs,Adductors_Hip Flexor,Machine,Standing
+Thighs,Abductors_Hip Flexor,Machine,Standing
+Thighs,Abductors_Hip Abduction,Machine,Seated
+Thighs,Adductors_Hip Adduction,Machine,Seated
+Thighs,Abductors,Glutes_Side Leg Raises,Kneeling
+Thighs,Abductors,Glutes_Side Leg Raises,Lying
+Calves-Soleus_Seated Calf Raise
+Calves_Seated Calf Raise,Leg Press Machine
+Calves_Calf Raises,Single-Leg
+Calves_Standing Calf Raise,Barbell
+Calves_Standing Calf Raise,Machine
+Calves_Standing Calf Raises
+Calves_Heel Raise
+Calves_Toe Press
+Calves_Seated Calf Raise,Leg Press Machine
+Calves,Shin_Seated Calf Raise,Machine
+Calves_Seated Calf Raise,Barbell
+Calves_Standing Calf Raise,Two Legs,Dumbbell
+Calves_Standing Calf Raise,Two Legs,Machine
+Calves_Standing Calf Raise,One-Leg,Dumbell
+Calves_Standing Calf Raise,One Leg,Machine 
