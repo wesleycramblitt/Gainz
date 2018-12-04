@@ -27,9 +27,12 @@ namespace GainzWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             
-            services.AddDbContext<GainzWebAPI.Models.GainzDBContext>(opt => opt.UseSqlite("gainz.db"));
+            services.AddDbContext<GainzWebAPI.Models.GainzDBContext>(opt => 
+            opt.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +48,20 @@ namespace GainzWebAPI
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseCors(o =>
+            {
+                o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+
+            });
+
         }
     }
 }

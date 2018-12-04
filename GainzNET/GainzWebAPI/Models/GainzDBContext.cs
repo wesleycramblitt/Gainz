@@ -12,7 +12,7 @@ namespace GainzWebAPI.Models
         public GainzDBContext(DbContextOptions<GainzDBContext> options)
             : base(options)
         {
-
+            
         }
 
         public DbSet<Exercise> Exercises { get; set; }
@@ -22,7 +22,10 @@ namespace GainzWebAPI.Models
         public DbSet<SplitDay> SplitDays { get; set; }
         public DbSet<RepScheme> RepSchemes { get; set; }
 
-        
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+        }
     }
 }

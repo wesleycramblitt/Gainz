@@ -31,7 +31,7 @@ namespace GainzWebAPI.RoutineGeneration
             volumeMuscleMap = new Dictionary<Muscle, int>();
 
             //large muscles worked twice as much as small
-            foreach (Muscle muscle in SplitDay.MusclesWorked)
+            foreach (Muscle muscle in SplitDay.SplitDaysMuscles.Select(x => x.Muscle))
             {
                 if (muscle.IsLarge)
                     volumeMuscleMap.Add(muscle, volumePerDay);
