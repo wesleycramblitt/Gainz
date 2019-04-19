@@ -24,9 +24,8 @@ namespace GainzWebAPI.Controllers
         [HttpGet]
         public IEnumerable<Split> GetSplits()
         {
-            var splits = _context.Splits.Include(x => x.SplitDays)
-                .ThenInclude(x => x.SplitDaysMuscles)
-                .ThenInclude(x => x.Muscle);
+            var splits = _context.Splits.Include(x => x.SplitDays).
+                ThenInclude(x => x.Day);
             return splits;
         }
 
@@ -39,7 +38,11 @@ namespace GainzWebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var split = await _context.Splits.FindAsync(id);
+            var split = await _context.Splits.Include(x => x.SplitDays).
+                ThenInclude(x => x.Day).
+                ThenInclude(x => x.DaysMuscles).
+                ThenInclude(x => x.Muscle).
+            FirstOrDefaultAsync(x => x.ID == id);
 
             if (split == null)
             {
@@ -62,11 +65,15 @@ namespace GainzWebAPI.Controllers
             {
                 return BadRequest();
             }
-
-            _context.Entry(split).State = EntityState.Modified;
-
             try
             {
+                var ctxSplit = _context.Splits.Include(x => x.SplitDays)
+                    .ThenInclude(x => x.Day)
+                    .ThenInclude(x => x.DaysMuscles).
+                FirstOrDefault(x => x.ID == id);
+
+                AutoMapper.Mapper.Map(split, ctxSplit);
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -79,6 +86,10 @@ namespace GainzWebAPI.Controllers
                 {
                     throw;
                 }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
 
             return NoContent();

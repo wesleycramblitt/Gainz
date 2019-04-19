@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GainzWebAPI.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace GainzWebAPI.Models
 {
-    public enum ExerciseType { BodyweightNoEquipment, BodyweightEquipment, Barbell, Dumbbell, Kettlebell, Cables, Machine }
     public class Exercise
     {
         public Exercise()

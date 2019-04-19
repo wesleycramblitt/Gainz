@@ -17,7 +17,8 @@ namespace GainzWebAPI.Models
 
         public string Name { get; set; }
 
-        public bool IsLarge { get; set; }
+        //1 is large 5 is small
+        public int Size { get; set; }
 
     }
 }

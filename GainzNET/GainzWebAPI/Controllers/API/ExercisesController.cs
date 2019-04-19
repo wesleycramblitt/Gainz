@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GainzWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using AutoMapper.Collection;
+using AutoMapper;
 
 namespace GainzWebAPI.Controllers
 {
@@ -26,7 +29,7 @@ namespace GainzWebAPI.Controllers
         [HttpGet]
         public IEnumerable<Exercise> GetExercises()
         {
-            return _context.Exercises.Include(e => e.ExerciseMuscles).ThenInclude(e => e.muscle);
+            return _context.Exercises.Include(e => e.ExerciseMuscles);
         }
 
         // GET: api/Exercises/5
@@ -38,7 +41,7 @@ namespace GainzWebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var exercise = await _context.Exercises.FindAsync(id);
+            var exercise = await _context.Exercises.Include(e => e.ExerciseMuscles).FirstOrDefaultAsync(x => x.ExerciseID == id);
 
             if (exercise == null)
             {
@@ -52,20 +55,23 @@ namespace GainzWebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutExercise([FromRoute] int id, [FromBody] Exercise exercise)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != exercise.ExerciseID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(exercise).State = EntityState.Modified;
-
             try
-            {
+            { 
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (id != exercise.ExerciseID)
+                {
+                    return BadRequest();
+                }
+
+                var ctxExercise = _context.Exercises.Include(x => x.ExerciseMuscles).FirstOrDefault(x => x.ExerciseID == id);
+
+                
+                Mapper.Map(exercise, ctxExercise);
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -78,6 +84,10 @@ namespace GainzWebAPI.Controllers
                 {
                     throw;
                 }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
 
             return NoContent();

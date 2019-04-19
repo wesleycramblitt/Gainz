@@ -13,10 +13,8 @@ namespace GainzWebAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-        public string Name { get; set;}
-
-        public bool IsRest { get; set;}
-
-        public List<SplitDayMuscle> SplitDaysMuscles { get; set;}
+        public int SplitID { get; set; }
+        public int DayID { get; set; }
+        public Day Day { get; set; }
     }
 }

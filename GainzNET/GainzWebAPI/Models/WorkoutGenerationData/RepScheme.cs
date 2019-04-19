@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GainzWebAPI.Enums;
+using GainzWebAPI.RoutineGeneration;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,36 +9,47 @@ using System.Threading.Tasks;
 
 namespace GainzWebAPI.Models
 {
-    public enum RepRange { MaxStrength=1, Strength=2, HypertrophyStrengh=3, Hypertrophy=4, Endurance=5 }
-    
-    public enum Intensity { Low=1, Medium=2, High=3}
-
     public class RepScheme
     {
-        [ScaffoldColumn(false)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public (int,int) PrimarySetsReps { get; set; }
 
-        public string Name { get; set; }
-
-        public string Description { get; set; }
-
-        public RepRange RepRange { get; set; }
-
-        public Intensity Intensity { get; set; }
-
-        public List<RepSchemeSet> RepSchemeSets { get; set; }
+        //public (int,int) SecondarySetsReps { get; set; }
 
         public int TotalReps()
         {
             int reps = 0;
 
-            foreach (RepSchemeSet set in RepSchemeSets)
+            for (int i = 0; i < PrimarySetsReps.Item1; i++)
             {
-                reps += set.Reps;
+                reps += PrimarySetsReps.Item2;
             }
 
             return reps;
+        }
+
+        public void Generate(GeneratorSettings genSettings)
+        {
+            Random r = new Random();
+            int reps = ((int)genSettings.repRange * 3) - r.Next(0, 2);
+
+            int maxSets = (int)genSettings.variation;
+            int minSets = 0;
+            switch (maxSets)
+            {
+                case 3:
+                    minSets = 1;
+                    break;
+                case 7:
+                    minSets = 4;
+                    break;
+                case 10:
+                    minSets = 8;
+                    break;
+            }
+
+            int sets = r.Next(minSets, maxSets);
+            PrimarySetsReps = (sets, reps);
+
         }
     }
 }

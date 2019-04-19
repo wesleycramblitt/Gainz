@@ -20,56 +20,75 @@ namespace GainzWebAPI.RoutineGeneration
 
         Random random = new Random();
 
-        public WorkoutDayGenerator(int volumePerDay, RepScheme repScheme, SplitDay splitDay )
+        GeneratorSettings generatorSettings { get; set; }
+
+        public WorkoutDayGenerator(RepScheme repScheme, SplitDay splitDay, GeneratorSettings _generatorSettings )
         {
             RepScheme = repScheme;
 
             SplitDay = splitDay;
 
-            VolumePerDay = volumePerDay;
+            VolumePerDay = _generatorSettings.volumePerDay;
 
             volumeMuscleMap = new Dictionary<Muscle, int>();
 
+            generatorSettings = _generatorSettings;
+            
             //large muscles worked twice as much as small
-            foreach (Muscle muscle in SplitDay.SplitDaysMuscles.Select(x => x.Muscle))
+            foreach (Muscle muscle in SplitDay.Day.DaysMuscles
+                                                .OrderByDescending(x => x.Muscle.Size)
+                                                .Select(x => x.Muscle))
             {
-                if (muscle.IsLarge)
-                    volumeMuscleMap.Add(muscle, volumePerDay);
+                if (generatorSettings.laggingMuscles.Contains(muscle.Name))
+                {
+                    volumeMuscleMap.Add(muscle, VolumePerDay*2 / muscle.Size);
+                }
+                else if (generatorSettings.overDevelopedMuscles.Contains(muscle.Name))
+                {
+                    volumeMuscleMap.Add(muscle, (VolumePerDay/2) / muscle.Size);
+                }
                 else
-                    volumeMuscleMap.Add(muscle, volumePerDay/2);
+                {
+                    volumeMuscleMap.Add(muscle, VolumePerDay / muscle.Size);
+                }
+
             }
         }
 
         public WorkoutDay Generate(GainzDBContext dbContext)
         {
-            WorkoutDay workoutDay = new WorkoutDay(SplitDay.IsRest, SplitDay.Name);
+            WorkoutDay workoutDay = new WorkoutDay(SplitDay.Day.IsRest, SplitDay.Day.Name);
+            workoutDay.Workouts = new List<Workout>();
 
             List<Exercise> exercises = new List<Exercise>();
 
-            bool preferCompound = true;
-
-            foreach (KeyValuePair<Muscle,int> muscleVolume in volumeMuscleMap)
+            
+            while (volumeMuscleMap.Count > 0)
             {
-                while (muscleVolume.Value > 0)
+                WorkoutGenerator workoutGenerator = new WorkoutGenerator(RepScheme, volumeMuscleMap.First().Key, exercises, generatorSettings);
+
+                Workout workout = workoutGenerator.Generate(dbContext);
+
+                exercises.Add(workout.Exercise);
+
+                foreach (var exerciseMuscle in workout.Exercise.ExerciseMuscles)
                 {
-                    WorkoutGenerator workoutGenerator = new WorkoutGenerator(RepScheme, preferCompound, muscleVolume, exercises);
-
-                    Workout workout = workoutGenerator.Generate(dbContext);
-                    
-                    volumeMuscleMap[muscleVolume.Key] -= workout.TotalReps(muscleVolume.Key);
-
-                    workoutDay.Workouts.Add(workout);
-
-                    if (preferCompound)
+                    if (volumeMuscleMap.Keys.Contains(exerciseMuscle.Muscle))
                     {
-                        preferCompound = false;
+                        volumeMuscleMap[exerciseMuscle.Muscle] -= workout.TotalReps(exerciseMuscle.Muscle);
+                        if (volumeMuscleMap[exerciseMuscle.Muscle] <= 0)
+                        {
+                            volumeMuscleMap.Remove(exerciseMuscle.Muscle);
+                        }
                     }
-
                 }
+                workoutDay.Workouts.Add(workout);
+
             }
 
 
             return workoutDay;
+            
         }
     }
 }

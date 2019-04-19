@@ -19,6 +19,40 @@ namespace GainzWebAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("GainzWebAPI.Models.Day", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsRest");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Days");
+                });
+
+            modelBuilder.Entity("GainzWebAPI.Models.DayMuscle", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DayID");
+
+                    b.Property<int?>("MuscleID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DayID");
+
+                    b.HasIndex("MuscleID");
+
+                    b.ToTable("DayMuscles");
+                });
+
             modelBuilder.Entity("GainzWebAPI.Models.Exercise", b =>
                 {
                     b.Property<int>("ExerciseID")
@@ -44,7 +78,7 @@ namespace GainzWebAPI.Migrations
 
                     b.Property<int>("ExerciseID");
 
-                    b.Property<int?>("muscleID");
+                    b.Property<int>("MuscleID");
 
                     b.Property<int>("percentInvolvement");
 
@@ -52,7 +86,7 @@ namespace GainzWebAPI.Migrations
 
                     b.HasIndex("ExerciseID");
 
-                    b.HasIndex("muscleID");
+                    b.HasIndex("MuscleID");
 
                     b.ToTable("ExerciseMuscles");
                 });
@@ -63,53 +97,13 @@ namespace GainzWebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsLarge");
-
                     b.Property<string>("Name");
+
+                    b.Property<int>("Size");
 
                     b.HasKey("ID");
 
                     b.ToTable("Muscles");
-                });
-
-            modelBuilder.Entity("GainzWebAPI.Models.RepScheme", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<int>("Intensity");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("RepRange");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("RepSchemes");
-                });
-
-            modelBuilder.Entity("GainzWebAPI.Models.RepSchemeSet", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Percent1RM");
-
-                    b.Property<int?>("RepSchemeID");
-
-                    b.Property<int>("Reps");
-
-                    b.Property<int>("RestInterval");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("RepSchemeID");
-
-                    b.ToTable("RepSchemeSet");
                 });
 
             modelBuilder.Entity("GainzWebAPI.Models.Split", b =>
@@ -121,8 +115,6 @@ namespace GainzWebAPI.Migrations
                     b.Property<string>("Description");
 
                     b.Property<int>("Frequency");
-
-                    b.Property<int>("Intensity");
 
                     b.Property<string>("Name");
 
@@ -137,36 +129,29 @@ namespace GainzWebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsRest");
+                    b.Property<int>("DayID");
 
-                    b.Property<string>("Name");
-
-                    b.Property<int?>("SplitID");
+                    b.Property<int>("SplitID");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("DayID");
 
                     b.HasIndex("SplitID");
 
                     b.ToTable("SplitDays");
                 });
 
-            modelBuilder.Entity("GainzWebAPI.Models.SplitDayMuscle", b =>
+            modelBuilder.Entity("GainzWebAPI.Models.DayMuscle", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.HasOne("GainzWebAPI.Models.Day")
+                        .WithMany("DaysMuscles")
+                        .HasForeignKey("DayID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.Property<int?>("MuscleID");
-
-                    b.Property<int>("SplitDayID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("MuscleID");
-
-                    b.HasIndex("SplitDayID");
-
-                    b.ToTable("SplitDayMuscle");
+                    b.HasOne("GainzWebAPI.Models.Muscle", "Muscle")
+                        .WithMany()
+                        .HasForeignKey("MuscleID");
                 });
 
             modelBuilder.Entity("GainzWebAPI.Models.ExerciseMuscle", b =>
@@ -176,34 +161,22 @@ namespace GainzWebAPI.Migrations
                         .HasForeignKey("ExerciseID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("GainzWebAPI.Models.Muscle", "muscle")
+                    b.HasOne("GainzWebAPI.Models.Muscle", "Muscle")
                         .WithMany()
-                        .HasForeignKey("muscleID");
-                });
-
-            modelBuilder.Entity("GainzWebAPI.Models.RepSchemeSet", b =>
-                {
-                    b.HasOne("GainzWebAPI.Models.RepScheme")
-                        .WithMany("RepSchemeSets")
-                        .HasForeignKey("RepSchemeID");
+                        .HasForeignKey("MuscleID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("GainzWebAPI.Models.SplitDay", b =>
                 {
+                    b.HasOne("GainzWebAPI.Models.Day", "Day")
+                        .WithMany()
+                        .HasForeignKey("DayID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("GainzWebAPI.Models.Split")
                         .WithMany("SplitDays")
-                        .HasForeignKey("SplitID");
-                });
-
-            modelBuilder.Entity("GainzWebAPI.Models.SplitDayMuscle", b =>
-                {
-                    b.HasOne("GainzWebAPI.Models.Muscle", "Muscle")
-                        .WithMany()
-                        .HasForeignKey("MuscleID");
-
-                    b.HasOne("GainzWebAPI.Models.SplitDay")
-                        .WithMany("MusclesWorked")
-                        .HasForeignKey("SplitDayID")
+                        .HasForeignKey("SplitID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

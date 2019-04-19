@@ -15,8 +15,8 @@ namespace GainzWebAPI.Models
         {
             int involvement = 1;
             if (m != null)
-                involvement = Exercise.ExerciseMuscles.FirstOrDefault(x => x.muscle == m).percentInvolvement;
-
+                involvement = Exercise.ExerciseMuscles.FirstOrDefault(x => x.Muscle == m).percentInvolvement;
+            involvement = 1;
             int reps = RepScheme.TotalReps() * involvement;
 
             return reps;

@@ -20,8 +20,8 @@ namespace GainzWebAPI.Models
         public DbSet<Muscle> Muscles { get; set; }
         public DbSet<Split> Splits { get; set; }
         public DbSet<SplitDay> SplitDays { get; set; }
-        public DbSet<RepScheme> RepSchemes { get; set; }
-
+        public DbSet<Day> Days { get; set; }
+        public DbSet<DayMuscle> DayMuscles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -12,6 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using GainzWebAPI.Models;
+using AutoMapper.EquivalencyExpression;
 
 namespace GainzWebAPI
 {
@@ -30,9 +33,20 @@ namespace GainzWebAPI
             services.AddCors();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            
-            services.AddDbContext<GainzWebAPI.Models.GainzDBContext>(opt => 
+
+            services.AddDbContext<GainzWebAPI.Models.GainzDBContext>(opt =>
             opt.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
+
+            Mapper.Initialize(cfg =>  {
+                cfg.AddCollectionMappers();
+                cfg.CreateMap<Exercise, Exercise>().EqualityComparison((x, y) => x.ExerciseID == y.ExerciseID);
+                cfg.CreateMap<Muscle, Muscle>().EqualityComparison((x, y) => x.ID == y.ID);
+                cfg.CreateMap<ExerciseMuscle, ExerciseMuscle>().EqualityComparison((x, y) => x.ExerciseMuscleID == y.ExerciseMuscleID);
+                cfg.CreateMap<Split, Split>().EqualityComparison((x, y) => x.ID== y.ID);
+                cfg.CreateMap<SplitDay, SplitDay>().EqualityComparison((x, y) => x.ID == y.ID);
+                cfg.CreateMap<DayMuscle, DayMuscle>().EqualityComparison((x, y) => x.ID == y.ID);
+                cfg.CreateMap<Day, Day>().EqualityComparison((x, y) => x.ID == y.ID);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

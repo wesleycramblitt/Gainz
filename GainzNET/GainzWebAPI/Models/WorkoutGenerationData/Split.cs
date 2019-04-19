@@ -1,15 +1,14 @@
-﻿using System;
+﻿using GainzWebAPI.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using static GainzWebAPI.RoutineGeneration.GeneratorSettings;
 
 namespace GainzWebAPI.Models
 {
-
-    public enum Frequency { One=1, Two=2, Three=3, Four=4, Five=5 }
-
     public class Split
     {
         [ScaffoldColumn(false)]
@@ -20,10 +19,10 @@ namespace GainzWebAPI.Models
 
         public string Description { get; set; }
 
+        public int Frequency { get; set; }
+
         public List<SplitDay> SplitDays { get; set;}
 
-        public Frequency Frequency { get; set;}
-
-        public Intensity Intensity { get; set; }
+      
     }
 }

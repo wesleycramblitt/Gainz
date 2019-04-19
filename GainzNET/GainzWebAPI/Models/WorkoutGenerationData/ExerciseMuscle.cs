@@ -13,7 +13,8 @@ namespace GainzWebAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ExerciseMuscleID { get; set; }
 
-        public Muscle muscle { get; set; }
+        public Muscle Muscle { get; set; }
+        public int MuscleID { get; set; }
 
         public int percentInvolvement { get; set; }
 
