@@ -160,6 +160,7 @@ function post( data, callback) {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             callback(xmlHttp.responseText);
     }
+    console.log(data);
     xmlHttp.open("POST","https://localhost:4999/api/generator", true); // true for asynchronous 
     xmlHttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     xmlHttp.send(JSON.stringify(data));
