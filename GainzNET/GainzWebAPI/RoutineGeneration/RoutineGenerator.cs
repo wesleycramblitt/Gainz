@@ -53,12 +53,16 @@ namespace GainzWebAPI.RoutineGeneration
 
             repScheme.Generate(generatorSettings);
 
+            Dictionary<string, WorkoutDay> likeDays = new Dictionary<string, WorkoutDay>();
+
             foreach (SplitDay splitDay in splitDays)
             {
 
                 WorkoutDayGenerator workoutDayGenerator = new WorkoutDayGenerator(repScheme, splitDay, generatorSettings);
-
-                workoutRoutine.WorkoutDays.Add(workoutDayGenerator.Generate(dbContext));
+                WorkoutDay workoutDay = likeDays.ContainsKey(splitDay.Day.Name) ? 
+                    likeDays[splitDay.Day.Name] : workoutDayGenerator.Generate(dbContext);
+                likeDays[splitDay.Day.Name] = workoutDay;
+                workoutRoutine.WorkoutDays.Add(workoutDay);
             }
 
             return workoutRoutine;

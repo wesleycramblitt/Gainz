@@ -11,20 +11,22 @@ namespace GainzWebAPI.Models
 {
     public class RepScheme
     {
+        public RepScheme()
+        {
+            _totalReps = null;
+        }
         public (int,int) PrimarySetsReps { get; set; }
 
         //public (int,int) SecondarySetsReps { get; set; }
 
+        private int? _totalReps { get; set; }
         public int TotalReps()
         {
-            int reps = 0;
-
-            for (int i = 0; i < PrimarySetsReps.Item1; i++)
+            if (_totalReps == null)
             {
-                reps += PrimarySetsReps.Item2;
+                _totalReps = (PrimarySetsReps.Item1) * (PrimarySetsReps.Item2);
             }
-
-            return reps;
+            return _totalReps.Value;
         }
 
         public void Generate(GeneratorSettings genSettings)

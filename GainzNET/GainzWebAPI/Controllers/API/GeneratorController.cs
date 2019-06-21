@@ -28,10 +28,16 @@ namespace GainzWebAPI.Controllers.API
             generatorSettings.Initialize();
 
             var generator = new RoutineGeneration.RoutineGenerator(generatorSettings);
+            try
+            {
+                var routine = generator.Generate(_context);
 
-            var routine = generator.Generate(_context);
-            
-            return new JsonResult(routine.WorkoutDays);
+                return new JsonResult(routine.WorkoutDays);
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
             
             
         }

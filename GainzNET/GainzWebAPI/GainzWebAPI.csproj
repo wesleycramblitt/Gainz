@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\API\DaysController.cs" />
+    <Compile Remove="Controllers\API\ExerciseMusclesController.cs" />
+    <Compile Remove="Controllers\API\ExercisesController.cs" />
+    <Compile Remove="Controllers\API\MusclesController.cs" />
+    <Compile Remove="Controllers\API\SplitDaysController.cs" />
+    <Compile Remove="Controllers\API\SplitsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
