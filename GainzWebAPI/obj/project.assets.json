@@ -12679,11 +12679,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wcram\\OneDrive\\Documents\\GitHub\\Gainz\\GainzNET\\GainzWebAPI\\GainzWebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\wcram\\OneDrive\\Documents\\GitHub\\Gainz\\GainzWebAPI\\GainzWebAPI.csproj",
       "projectName": "GainzWebAPI",
-      "projectPath": "C:\\Users\\wcram\\OneDrive\\Documents\\GitHub\\Gainz\\GainzNET\\GainzWebAPI\\GainzWebAPI.csproj",
+      "projectPath": "C:\\Users\\wcram\\OneDrive\\Documents\\GitHub\\Gainz\\GainzWebAPI\\GainzWebAPI.csproj",
       "packagesPath": "C:\\Users\\wcram\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wcram\\OneDrive\\Documents\\GitHub\\Gainz\\GainzNET\\GainzWebAPI\\obj\\",
+      "outputPath": "C:\\Users\\wcram\\OneDrive\\Documents\\GitHub\\Gainz\\GainzWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

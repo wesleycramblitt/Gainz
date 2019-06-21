@@ -9,18 +9,8 @@
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "exercises",
-      "environmentVariables": {
-        "ASPNETCORE_URLS": "'http://+:\\8080' dotnet run",
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
     "GainzNET": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "api",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

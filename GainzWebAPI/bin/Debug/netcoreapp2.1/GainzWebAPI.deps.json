@@ -30,6 +30,7 @@
           "AutoMapper.Collection.LinqToSQL": "5.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.EntityFrameworkCore.Sqlite": "2.1.4",
+          "Microsoft.Extensions.Configuration.CommandLine": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
         },
