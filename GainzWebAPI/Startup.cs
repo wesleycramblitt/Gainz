@@ -16,6 +16,7 @@ using AutoMapper;
 using GainzWebAPI.Models;
 using AutoMapper.EquivalencyExpression;
 
+
 namespace GainzWebAPI
 {
     public class Startup
@@ -30,12 +31,23 @@ namespace GainzWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //Get connection string from Heroku Database Url
+            Uri.TryCreate(Configuration["DATABASE_URL"], UriKind.Absolute, out Uri url);
+
+            var connectionUrl = $"host={url.Host};username={url.UserInfo.Split(':')[0]};password={url.UserInfo.Split(':')[1]};database={url.LocalPath.Substring(1)};pooling=true;";
+
             services.AddCors();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<GainzWebAPI.Models.GainzDBContext>(opt =>
-            opt.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
+            services.AddEntityFrameworkNpgsql();
+
+            services.AddDbContext<GainzWebAPI.Models.GainzDBContext>(opt => opt.UseNpgsql(connectionUrl));
+
+            services.BuildServiceProvider();
+
+            //opt.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
 
             Mapper.Initialize(cfg =>  {
                 cfg.AddCollectionMappers();

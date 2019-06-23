@@ -1,0 +1,89 @@
+ExerciseID,Name,ExerciseType,IsCompound
+5,Flat Dumbbell Bench Press,3,1
+6,Incline Barbell Bench Press,2,1
+7,Incline Dumbbell Bench Press,3,1
+8,Decline Barbell Bench Press,2,1
+9,Decline Dumbbell Bench Press,3,1
+10,Flat Chest Press Machine,6,1
+11,Flat Barbell Bench Press,2,1
+12,Incline Chest Press Machine,6,1
+13,Decline Chest Press Machine,6,1
+14,Dips (on parallel bars with slight forward lean),0,1
+15,Push-Ups,0,1
+16,Flat Dumbbell Flyes,3,0
+17,Incline Dumbbell Flyes,3,0
+18,Decline Dumbbell Flyes,3,0
+19,Pec Deck Machine,6,0
+20,Cable Crossovers/Cable Flyes,5,0
+21,Pull-Ups,0,1
+22,Chin-Ups,0,1
+23,Lat Pull-Downs,2,1
+24,Bent Over Barbell Rows,2,1
+25,Dumbbell Rows,3,1
+26,T-Bar Rows,2,1
+27,Seated Cable Rows,5,1
+28,Chest Supported Barbell Rows,2,1
+29,Chest Supported Dumbbell Rows,3,1
+30,Chest Supported Machine Rows,6,1
+31,Inverted Rows,0,0
+32,Barbell Shrugs,2,0
+33,Machine Shrugs,6,0
+34,Dumbbell Shrugs,3,0
+35,Seated Overhead Barbell,2,1
+36,Seated Overhead Dumbbell Press,3,1
+37,Standing Overhead Barbell Press,2,1
+38,Standing Overhead Dumbbell Press,3,1
+39,Overhead Machine Press,6,1
+40,Arnold Press,3,1
+41,Barbell Upright Row,2,0
+42,Dumbbell Upright Row,3,0
+43,Machine Upright Rows,6,0
+44,Dumbbell Lateral Raise,3,0
+45,Machine Lateral Raise,6,0
+46,Cable Lateral Raise,5,0
+47,Dumbbell Front Raises,3,0
+48,Cable Front Raises,5,0
+49,Machine Front Raises,6,0
+50,Barbell Rear Delt Rows,2,0
+51,Dumbbell Rear Delt Rows,3,0
+52,Machine Rear Delt Rows,6,0
+53,Barbell Rear Delt Flies,2,0
+54,Dumbbell Rear Delt Flies,3,0
+55,Machine Rear Delt Flies,6,0
+56,Barbell Squats,2,1
+57,Barbell Front Squats,2,1
+58,Barbell Split Squats,2,1
+59,Barbell Lunges,2,1
+60,Barbell Step-Ups,2,1
+61,Leg Press,2,1
+62,Machine Squat/Hack Squat,6,1
+63,Leg Extensions,2,0
+64,Barbell Romanian Deadlifts,2,1
+65,Barbell Straight Leg Deadlifts,2,1
+66,Barbell Sumo Deadlifts,2,1
+67,Glute-Ham Raises,5,0
+68,Hyperextensions,0,0
+69,Cable Pull-Throughs,5,1
+70,Good-Mornings,0,0
+71,Leg Curls,6,0
+72,Standing Barbell Curls,2,0
+73,Standing Dumbbell Curls,3,0
+74,Barbell Preacher Curls,2,0
+75,Dumbbell Preacher Curls,3,0
+76,Seated Dumbbell Curls,3,0
+77,Incline Dumbbell Curls,3,0
+78,Hammer Curls,3,0
+79,Concentration Curls,3,0
+80,Cable Curls,5,0
+82,Flat Close Grip Bench Press,2,1
+83,Decline Close Grip Bench Press,2,1
+84,Close Grip Push-Ups,0,1
+85,Laying Barbell Tricep Extensions,2,0
+86,Laying Dumbbell Tricep Extensions,3,0
+87,Skull Crushers,2,0
+88,Overhead Barbell Tricep Extensions,2,0
+89,Overhead Dumbbell Tricep Extensions,3,0
+90,Cable Press-Downs,5,0
+91,Bench Dips,0,0
+92,Biceps Curl Machine,6,0
+169,Dips (on parallel bars),0,1
