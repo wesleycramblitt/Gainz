@@ -47,14 +47,23 @@ namespace GainzWebAPI.RoutineGeneration
                 .Include(x => x.ExerciseMuscles)
                 .ThenInclude(x => x.Muscle)
                 .Where(e => e.ExerciseMuscles.FirstOrDefault(em => em.Muscle == MuscleToWork) != null &&
-                GeneratorSettings.exerciseTypes.Contains(e.ExerciseType) &&
+                GeneratorSettings.ExerciseTypes.Contains(e.ExerciseType) &&
                 !UsedExercises.Any(x => x.ExerciseID == e.ExerciseID)
                 )
-                .OrderBy(x => x.IsCompound == true)
                 .ToList();
             
+
             var rnd = new Random();
-            Exercises = Exercises.OrderBy(x => rnd.Next()).Take(ExerciseCount).ToList();
+
+            if (Exercises.Any(x => x.IsCompound))
+            {
+                Exercises = Exercises.Where(x => x.IsCompound).OrderBy(x => rnd.Next()).Take(ExerciseCount).ToList();
+            }
+            else
+            {
+                Exercises = Exercises.OrderBy(x => rnd.Next()).Take(ExerciseCount).ToList();
+            }
+
 
             
 

@@ -14,36 +14,21 @@ namespace GainzWebAPI.Models
     {
         public string Name { get; set; }
 
-        public Split Split { get; set; }
-
         public List<WorkoutDay> WorkoutDays { get; set; }
 
-        public Volume Volume { get; set; }
+        public string SplitName { get; set; }
 
-        public Frequency Frequency { get; set; }
+        public int Volume { get; set; }
 
-       // public Intensity Intensity { get; set; }
+        public int Frequency { get; set; }
 
-        public string Display
-        {
-            get
-            {
-                var display = "";
-                foreach (var wd in WorkoutDays)
-                {
-                    display += "<h2>"+wd.Name+"</h2>";
-                    foreach (var w in wd.Workouts)
-                    {
-                        display+= w.Exercise.Name + " "+ w.RepScheme.PrimarySetsReps.Item1.ToString()
-                            +"X" + w.RepScheme.PrimarySetsReps.Item2.ToString() + "<br/>";
+        public RepScheme RepScheme { get; set; }
 
-                    }
-                }
-                return display;
-            }
+        public List<string> ExerciseTypes { get; set; }
 
-            set { }
-        }
+        public bool failed { get; set; }
+
+        public string failureMessage { get; set; }
 
     }
 }

@@ -32,14 +32,18 @@ namespace GainzWebAPI.Controllers.API
             {
                 var routine = generator.Generate(_context);
 
-                return new JsonResult(routine.WorkoutDays);
+                return new JsonResult(routine);
             }
             catch (Exception ex)
             {
-                return new JsonResult(ex.Message);
+                WorkoutRoutine wr = new WorkoutRoutine();
+                wr.failed = true;
+                wr.failureMessage = ex.Message;
+                return new JsonResult(wr);
             }
             
             
         }
     }
+
 }
