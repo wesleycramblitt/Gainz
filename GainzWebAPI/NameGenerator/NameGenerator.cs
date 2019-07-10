@@ -10,8 +10,8 @@ namespace GainzWebAPI.NameGenerator
     {
         public static string getName()
         {
-            var adjectives = File.ReadAllLines("NameGenerator/2syllableadjectives.txt");
-            var nouns = File.ReadAllLines("NameGenerator/2syllablenouns.txt");
+            var adjectives = File.ReadAllLines("NameGenerator/commonAdjectives.txt");
+            var nouns = File.ReadAllLines("NameGenerator/commonNouns.txt");
 
             Random r = new Random();
 

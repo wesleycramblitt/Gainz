@@ -11,7 +11,7 @@
   "profiles": {
     "GainzNET": {
       "commandName": "Project",
-      "commandLineArgs": "DATABASE_URL=postgres://postgres:123456@localhost:5432/Gainz",
+      "commandLineArgs": "DATABASE_URL=postgres://postgres:123456@localhost:5432/Gainz MAILCHIMP_AUTH=wcramblitt:1a5da7bb6ed9b1dc2dd4a0bfb11255e7-us20",
       "launchUrl": "api",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

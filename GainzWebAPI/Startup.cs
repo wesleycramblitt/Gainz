@@ -15,12 +15,13 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using GainzWebAPI.Models;
 using AutoMapper.EquivalencyExpression;
-
+using System.Text;
 
 namespace GainzWebAPI
 {
     public class Startup
     {
+        public static string MailChimpAuth {get; set;}
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +32,9 @@ namespace GainzWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            MailChimpAuth = Convert.ToBase64String(Encoding.ASCII.GetBytes(Configuration["MAILCHIMP_AUTH"]));
+
 
             //Get connection string from Heroku Database Url
             Uri.TryCreate(Configuration["DATABASE_URL"], UriKind.Absolute, out Uri url);
