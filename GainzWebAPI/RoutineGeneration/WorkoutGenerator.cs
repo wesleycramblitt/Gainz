@@ -69,7 +69,18 @@ namespace GainzWebAPI.RoutineGeneration
 
             if (Exercises.Count() == 0)
             {
-                throw new Exception("Ran out of exercises to match current settings.");
+                var message = "Ran out of exercises to match current settings. ";
+                if (this.GeneratorSettings.ExerciseTypes.Count ==1 && 
+                    this.GeneratorSettings.ExerciseTypes[0] == Enums.ExerciseType.BodyweightNoEquipment)
+                {
+                    message += " Pick a frequency of 3 and try again for bodyweight workouts. There aren't enough bodyweight exercises " +
+                        "in our system to generate more complex bodyweight routines.";
+                }
+                else 
+                {
+                    message += " Try picking a different frequency, selecting more equipment, increasing rep range, or lowering volume";
+                }
+                throw new Exception(message);
             }
             Workouts = new List<Workout>();
             foreach (var exercise in Exercises)

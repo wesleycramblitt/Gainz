@@ -33,7 +33,7 @@ namespace GainzWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            MailChimpAuth = Convert.ToBase64String(Encoding.ASCII.GetBytes(Configuration["MAILCHIMP_AUTH"]));
+            //MailChimpAuth = Convert.ToBase64String(Encoding.ASCII.GetBytes(Configuration["MAILCHIMP_AUTH"]));
 
 
             //Get connection string from Heroku Database Url
