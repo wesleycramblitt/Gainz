@@ -55,7 +55,8 @@ namespace GainzWebAPI.Controllers.API
 
                 MailMessage mail = new MailMessage();
                 mail.From = new System.Net.Mail.MailAddress("wcramblitt@gmail.com");
-
+                mail.Subject = "Gainz Generator Workout Routine";
+                
                 // The important part -- configuring the SMTP client
                 SmtpClient smtp = new SmtpClient();
                 smtp.Port = 587;   // [1] You can try with 465 also, I always used 587 and got success
