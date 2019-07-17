@@ -22,3 +22,5 @@ C:\Users\wcram\OneDrive\Documents\GitHub\Gainz\GainzWebAPI\obj\Release\netcoreap
 C:\Users\wcram\OneDrive\Documents\GitHub\Gainz\GainzWebAPI\obj\Release\netcoreapp2.2\GainzWebAPI.dll
 C:\Users\wcram\OneDrive\Documents\GitHub\Gainz\GainzWebAPI\obj\Release\netcoreapp2.2\GainzWebAPI.pdb
 C:\Users\wcram\OneDrive\Documents\GitHub\Gainz\GainzWebAPI\obj\Release\netcoreapp2.2\GainzWebAPI.csproj.CopyComplete
+C:\Users\wcram\OneDrive\Documents\GitHub\Gainz\GainzWebAPI\bin\Release\netcoreapp2.2\NameGenerator\commonAdjectives.txt
+C:\Users\wcram\OneDrive\Documents\GitHub\Gainz\GainzWebAPI\bin\Release\netcoreapp2.2\NameGenerator\commonNouns.txt

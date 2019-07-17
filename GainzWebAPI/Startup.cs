@@ -33,7 +33,7 @@ namespace GainzWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //MailChimpAuth = Convert.ToBase64String(Encoding.ASCII.GetBytes(Configuration["MAILCHIMP_AUTH"]));
+            MailChimpAuth = Convert.ToBase64String(Encoding.ASCII.GetBytes(Configuration["MAILCHIMP_AUTH"]));
 
 
             //Get connection string from Heroku Database Url
@@ -71,18 +71,23 @@ namespace GainzWebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                //For client testing
+                app.UseCors(o =>
+                {
+                    o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
             }
             else
             {
                 app.UseHsts();
+                app.UseCors(o =>
+                {
+                    o.WithOrigins("https://www.gainzgenerator.com", "https://gainzgenerator.com");
+                });
             }
 
             app.UseHttpsRedirection();
-
-            app.UseCors(o =>
-            {
-                o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            });
 
             app.UseMvc(routes =>
             {
