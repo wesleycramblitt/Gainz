@@ -83,7 +83,7 @@ namespace GainzWebAPI
                 app.UseHsts();
                 app.UseCors(o =>
                 {
-                    o.WithOrigins("https://www.gainzgenerator.com", "https://gainzgenerator.com");
+                    o.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://www.gainzgenerator.com", "https://gainzgenerator.com", "http://www.gainzgenerator.com", "http://gainzgenerator.com");
                 });
             }
 

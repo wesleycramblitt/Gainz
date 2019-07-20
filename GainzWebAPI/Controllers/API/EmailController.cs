@@ -83,7 +83,7 @@ namespace GainzWebAPI.Controllers.API
             }
             catch (Exception e)
             {
-                return new StatusCodeResult(500);
+                return new JsonResult(e) { StatusCode = 500 };
             }
 
 
